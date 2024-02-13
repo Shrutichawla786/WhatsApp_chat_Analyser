@@ -1,5 +1,5 @@
-import preprocessor,helper
 import streamlit as st
+import preprocessor,helper
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -51,7 +51,7 @@ if uploaded_file is not None:
         st.title("Daily Timeline")
         daily_timeline = helper.daily_timeline(selected_user, df)
         fig, ax = plt.subplots()
-        ax.plot(daily_timeline['only_date'], daily_timeline['message'], color='black')
+        ax.plot(daily_timeline['only_date'], daily_timeline['message'], color='blue')
         plt.xticks(rotation='vertical')
         st.pyplot(fig)
 
@@ -63,7 +63,7 @@ if uploaded_file is not None:
             st.header("Most busy day")
             busy_day = helper.week_activity_map(selected_user,df)
             fig,ax = plt.subplots()
-            ax.bar(busy_day.index,busy_day.values,color='purple')
+            ax.bar(busy_day.index,busy_day.values,color='pink')
             plt.xticks(rotation='vertical')
             st.pyplot(fig)
 
@@ -71,7 +71,7 @@ if uploaded_file is not None:
             st.header("Most busy month")
             busy_month = helper.month_activity_map(selected_user, df)
             fig, ax = plt.subplots()
-            ax.bar(busy_month.index, busy_month.values,color='orange')
+            ax.bar(busy_month.index, busy_month.values,color='red')
             plt.xticks(rotation='vertical')
             st.pyplot(fig)
 
@@ -90,7 +90,7 @@ if uploaded_file is not None:
             col1, col2 = st.columns(2)
 
             with col1:
-                ax.bar(x.index, x.values,color='red')
+                ax.bar(x.index, x.values,color=["red" ,"pink" ,"green" ,"blue" ,"yellow"])
                 plt.xticks(rotation='vertical')
                 st.pyplot(fig)
             with col2:
@@ -108,16 +108,11 @@ if uploaded_file is not None:
 
         fig,ax = plt.subplots()
 
-        ax.barh(most_common_df[0],most_common_df[1])
+        ax.barh(most_common_df[0],most_common_df[1] , color="red" )
         plt.xticks(rotation='vertical')
 
         st.title('Most commmon words')
         st.pyplot(fig)
-
-      
-
-
-
 
 
 
