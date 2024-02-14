@@ -90,8 +90,7 @@ if uploaded_file is not None:
             col1, col2 = st.columns(2)
 
             with col1:
-                ax.bar(x.index, x.values,color=["red" ,"pink" ,"green" ,"blue" ,"yellow"])
-                plt.xticks(rotation='vertical')
+                ax.pie( x.values,labels=x.index , autopct="%0.1f%%")
                 st.pyplot(fig)
             with col2:
                 st.dataframe(new_df)
